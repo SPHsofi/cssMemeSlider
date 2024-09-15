@@ -69,8 +69,24 @@ input[type="radio"] {
 .controls {
     display: flex;
     flex-direction: row;
-    gap: 5px;
     margin: 10px 0;
+    gap: 5px;
+}
+
+.controler-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.controler-wrapper:first-child {
+    padding-left: 15px;
+}
+
+.controler-wrapper:last-child {
+    padding-right: 15px;
 }
 
 .controler {
@@ -80,9 +96,10 @@ input[type="radio"] {
     height: 1vw;
     border-radius: 100%;
     cursor: pointer;
+    display: inline-block;
 }
 
-.controler:hover {
+.controler-wrapper:hover .controler {
     background: #d5d5d5;
     border: 1px solid #d5d5d5;
 }
@@ -97,7 +114,6 @@ input[type="radio"] {
 .text {
     display: none;
 }
-
 
 input#slide1:checked ~ .text-group p:nth-child(1),
 input#slide2:checked ~ .text-group p:nth-child(2),
@@ -123,10 +139,10 @@ input#slide5:checked ~ .slider-img {
     transform: translateX(-400%);
 }
 
-input#slide1:checked ~ .controls label[for="slide1"],
-input#slide2:checked ~ .controls label[for="slide2"],
-input#slide3:checked ~ .controls label[for="slide3"],
-input#slide4:checked ~ .controls label[for="slide4"],
-input#slide5:checked ~ .controls label[for="slide5"] {
+input#slide1:checked ~ .controls label[for="slide1"] > .controler,
+input#slide2:checked ~ .controls label[for="slide2"] > .controler,
+input#slide3:checked ~ .controls label[for="slide3"] > .controler,
+input#slide4:checked ~ .controls label[for="slide4"] > .controler,
+input#slide5:checked ~ .controls label[for="slide5"] > .controler {
     background-color: rgba(28,28,28,0);
 }
