@@ -29,17 +29,29 @@ input[type="radio"] {
 
 .meme-slider {
     position: relative;
-    max-width: 800px;
     overflow: hidden;
-    width: 40vw;
+    width: 60vw;
     margin: 0 auto;
 }
 
 .slider-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 35vw 1fr;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-areas: 'img img img' 'text text controls';
+    justify-items: end;
+    align-items: start;
+    grid-row-gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .slider-wrapper {
+        grid-template-rows: 35vw 1fr 1fr;
+        grid-template-columns: 30vw 30vw;
+        grid-template-areas: 'img img' 'controls controls' 'text text';
+        justify-items: center;
+        grid-row-gap: 5px;
+    }
 }
 
 .slider-img,
@@ -51,12 +63,13 @@ input[type="radio"] {
 
 .slider-img {
     transition: transform 0.5s ease;
+    grid-area: img;
 }
 
 .text-group {
     width: 100%;
-    margin-top: 10px;
     font-size: 2vw;
+    grid-area: text;
 }
 
 .img-wrapper {
@@ -69,8 +82,8 @@ input[type="radio"] {
 .controls {
     display: flex;
     flex-direction: row;
-    margin: 10px 0;
     gap: 5px;
+    grid-area: controls;
 }
 
 .controler-wrapper {
