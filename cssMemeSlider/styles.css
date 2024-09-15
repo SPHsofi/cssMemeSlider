@@ -97,3 +97,36 @@ input[type="radio"] {
 .text {
     display: none;
 }
+
+
+input#slide1:checked ~ .text-group p:nth-child(1),
+input#slide2:checked ~ .text-group p:nth-child(2),
+input#slide3:checked ~ .text-group p:nth-child(3),
+input#slide4:checked ~ .text-group p:nth-child(4),
+input#slide5:checked ~ .text-group p:nth-child(5) {
+    display: block;
+}
+
+input#slide1:checked ~ .slider-img {
+    transform: translateX(0);
+}
+input#slide2:checked ~ .slider-img {
+    transform: translateX(-100%);
+}
+input#slide3:checked ~ .slider-img {
+    transform: translateX(-200%);
+}
+input#slide4:checked ~ .slider-img {
+    transform: translateX(-300%);
+}
+input#slide5:checked ~ .slider-img {
+    transform: translateX(-400%);
+}
+
+input#slide1:checked ~ .controls label[for="slide1"],
+input#slide2:checked ~ .controls label[for="slide2"],
+input#slide3:checked ~ .controls label[for="slide3"],
+input#slide4:checked ~ .controls label[for="slide4"],
+input#slide5:checked ~ .controls label[for="slide5"] {
+    background-color: rgba(28,28,28,0);
+}
