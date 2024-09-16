@@ -28,7 +28,6 @@ input[type="radio"] {
 }
 
 .meme-slider {
-    position: relative;
     overflow: hidden;
     width: 60vw;
     margin: 0 auto;
