@@ -126,6 +126,7 @@ input[type="radio"] {
 
 .text {
     display: none;
+    animation: textAnimationOut 0.5s ease;
 }
 
 input#slide1:checked ~ .text-group p:nth-child(1),
@@ -134,6 +135,16 @@ input#slide3:checked ~ .text-group p:nth-child(3),
 input#slide4:checked ~ .text-group p:nth-child(4),
 input#slide5:checked ~ .text-group p:nth-child(5) {
     display: block;
+    animation: textAnimationIn 0.9s ease;
+}
+
+@keyframes textAnimationIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 input#slide1:checked ~ .slider-img {
