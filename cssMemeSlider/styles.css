@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 0.5em;
+    text-shadow: 3px 2px 3px #494949;
+    color: #b6b6b6;
+    font-size: 3.5vw;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body {
+    background: -webkit-linear-gradient(90deg, #333333, #000000);
+    background: linear-gradient(90deg, #333333, #000000);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.meme-slider {
+    overflow: hidden;
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.slider-wrapper {
+    display: grid;
+    grid-template-rows: 35vw 1fr;
+    grid-template-columns: 20vw 20vw 20vw;
+    grid-template-areas: 'img img img' 'text text controls';
+    justify-items: end;
+    align-items: start;
+    grid-row-gap: 1vw;
+}
+
+@media screen and (max-width: 768px) {
+    .slider-wrapper {
+        grid-template-rows: 35vw 1fr 1fr;
+        grid-template-columns: 30vw 30vw;
+        grid-template-areas: 'img img' 'controls controls' 'text text';
+        justify-items: center;
+        grid-row-gap: 0.5vw;
+    }
+}
+
+.slider-img,
+.text-group {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.slider-img {
+    transition: transform 0.5s ease;
+    grid-area: img;
+}
+
+.text-group {
+    width: 100%;
+    font-size: 2vw;
+    grid-area: text;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    height: 35vw;
+    border-radius: 1rem;
+    flex: 0 0 100%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    gap:  0.5vw;
+    grid-area: controls;
+}
+
+.controler-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.8rem 0;
+}
+
+.controler-wrapper:first-child {
+    padding-left: 0.6rem;
+}
+
+.controler-wrapper:last-child {
+    padding-right: 0.6rem;
+}
+
+.controler {
+    background-color: #40ff00;
+    border: 0.1rem solid #40ff00;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 100%;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.controler-wrapper:hover .controler {
+    background: #d5d5d5;
+    border: 0.1rem solid #d5d5d5;
+}
+
+.text-group {
+    color: #b6b6b6;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 3%;
+    border-radius: 0.5rem;
+}
+
+.text {
+    display: none;
+    animation: textAnimationOut 0.5s ease;
+}
+
+input#slide1:checked ~ .text-group p:nth-child(1),
+input#slide2:checked ~ .text-group p:nth-child(2),
+input#slide3:checked ~ .text-group p:nth-child(3),
+input#slide4:checked ~ .text-group p:nth-child(4),
+input#slide5:checked ~ .text-group p:nth-child(5) {
+    display: block;
+    animation: textAnimationIn 0.9s ease;
+}
+
+@keyframes textAnimationIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+input#slide1:checked ~ .slider-img {
+    transform: translateX(0);
+}
+input#slide2:checked ~ .slider-img {
+    transform: translateX(-100%);
+}
+input#slide3:checked ~ .slider-img {
+    transform: translateX(-200%);
+}
+input#slide4:checked ~ .slider-img {
+    transform: translateX(-300%);
+}
+input#slide5:checked ~ .slider-img {
+    transform: translateX(-400%);
+}
+
+input#slide1:checked ~ .controls label[for="slide1"] > .controler,
+input#slide2:checked ~ .controls label[for="slide2"] > .controler,
+input#slide3:checked ~ .controls label[for="slide3"] > .controler,
+input#slide4:checked ~ .controls label[for="slide4"] > .controler,
+input#slide5:checked ~ .controls label[for="slide5"] > .controler {
+    background-color: rgba(28,28,28,0);
+}
